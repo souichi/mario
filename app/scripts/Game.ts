@@ -8,7 +8,7 @@
 module Maze {
   export class Game extends Phaser.Game {
     constructor() {
-      super(640, 480, Phaser.AUTO, 'game-div');
+      super(320, 240, Phaser.AUTO, 'game-div');
 
       this.state.add('boot', State.Boot);
       this.state.add('preload', State.Preload);
