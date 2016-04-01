@@ -116,10 +116,12 @@ var Maze;
                 // enemies
                 this.enemies = this.add.group();
                 this.enemies.enableBody = true;
-                var enemy = this.enemies.create(32 * 5, 32 * 10, 'mario_small');
-                enemy.frame = 6;
-                enemy.body.gravity.y = 6;
-                enemy.body.bounce.y = 0.7 + Math.random() * 0.2;
+                for (var i = 0; i < 10; i++) {
+                    var enemy = this.enemies.create(32 + i * 100, 32 + i * 100, 'mario_small');
+                    enemy.frame = 6;
+                    enemy.body.gravity.y = 6;
+                    enemy.body.bounce.y = 0.7 + Math.random() * 0.2;
+                }
                 // camera
                 this.camera.follow(this.mario);
                 // bgm
