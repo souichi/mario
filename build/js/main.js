@@ -69,11 +69,8 @@ var Maze;
                 _super.apply(this, arguments);
             }
             Menu.prototype.create = function () {
-                var _this = this;
                 this.background = this.add.sprite(80, 0, 'menu-background');
-                this.input.onDown.addOnce(function () {
-                    _this.game.state.start('main');
-                });
+                this.game.state.start('main');
             };
             return Menu;
         })(Phaser.State);
@@ -165,7 +162,7 @@ var Maze;
                 this.physics.arcade.overlap(this.mario, this.enemies, this.dead, null, this);
             };
             Main.prototype.render = function () {
-                this.game.debug.spriteInfo(this.mario, 0, 170);
+                // this.game.debug.spriteInfo(this.mario, 0, 170);
             };
             Main.prototype.clear = function () {
                 var _this = this;

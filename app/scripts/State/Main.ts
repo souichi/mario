@@ -90,7 +90,7 @@ module Maze.State {
     }
 
     render() {
-      this.game.debug.spriteInfo(this.mario, 0, 170);
+      // this.game.debug.spriteInfo(this.mario, 0, 170);
     }
 
     private clear() {
