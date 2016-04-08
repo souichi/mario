@@ -39,8 +39,8 @@ module Maze.State {
       // enemies
       this.enemies = this.add.group();
       this.enemies.enableBody = true;
-      for (let i = 0; i < 10; i++) {
-        var enemy = this.enemies.create(32+i*100, 32+i*100, 'mario_small');
+      for (let i = 0; i < 100; i++) {
+        var enemy = this.enemies.create(32+i*64 + Math.random() * 10 + 50, 32, 'mario_small');
         enemy.frame = 6;
         enemy.body.gravity.y = 6;
         enemy.body.bounce.y = 0.7 + Math.random() * 0.2;
@@ -78,11 +78,11 @@ module Maze.State {
         }
       }
 
-      if (32*14 <= this.mario.body.y) {
+      if (16*28 <= this.mario.body.y) {
         this.dead();
       }
 
-      if (32*18 <= this.mario.body.x) {
+      if (16*97 <= this.mario.body.x) {
         this.clear();
       }
 
@@ -90,7 +90,7 @@ module Maze.State {
     }
 
     render() {
-      // this.game.debug.spriteInfo(this.mario, 0, 170);
+      this.game.debug.spriteInfo(this.mario, 0, 170);
     }
 
     private clear() {
@@ -99,11 +99,9 @@ module Maze.State {
       this.stageClear.play();
       this.mario.animations.stop();
       this.mario.frame = 25;
-      var tween = this.game.add.tween(this.mario).to( { y: 32*12, x: 32*18 }, 1000, Phaser.Easing.Linear.None);
+      var tween = this.game.add.tween(this.mario).to( { y: 16*24, x: 16*97 }, 1000, Phaser.Easing.Linear.None);
       tween.onComplete.add(() => {
-        this.game.input.onDown.addOnce(() => {
-          this.game.state.start('menu');
-        }, this);
+        this.game.state.start('menu');
       }, this);
       tween.start();
     }
